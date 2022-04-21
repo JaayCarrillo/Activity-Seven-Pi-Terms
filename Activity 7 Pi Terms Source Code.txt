@@ -1,0 +1,68 @@
+This is my own work*
+Joseph Carrillo 
+CST-150 C# I 
+Activity 7 
+04/20/22
+
+Source Code * 
+
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Value_Pi
+{
+    public partial class Value : Form
+    {
+        public Value()
+        {
+            InitializeComponent();
+        }
+
+        private void calculateButton_Click(object sender, EventArgs e)
+        {
+            int numTerm;
+            double 
+                piValue = 4, 
+                num = 4, 
+                den = 3;
+
+            numTerm = Convert.ToInt32(textBox1.Text);
+
+            for(int i=0; i<=numTerm; i++)
+            {
+                if (i % 2 == 0)
+                {
+                    piValue -= num / den; 
+                }
+                else
+                {
+                    piValue += num / den;
+                }
+                den += 2;
+
+            }
+            label1.Text = "Approximate value of pi after " + numTerm + " terms";
+            label2.Text = "=" + piValue;
+
+            
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            textBox1.Text = "";
+            textBox1.Focus();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+           this.Close();
+        }
+    }
+}
